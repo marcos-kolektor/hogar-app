@@ -1,18 +1,17 @@
 
 import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
-import hogar.dao.TipoDao;
+import ar.com.hogar.repository.DataSource;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// /* Initiate Spring application context. */
-		//ApplicationContext springAppContext = new ClassPathXmlApplicationContext("BeanSettings.xml");
-		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-		TipoDao td = (TipoDao) ctx.getBean("tipo");
-		System.out.print("ID_TIPO: " + td.getIdTipo() + " - " + "DETALLE: " + td.getDetalle());
-
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("applicationContext.xml");
+		DataSource dataSource = (DataSource) ctx.getBean("beanDataSource");
+		System.out.print("URL_JDBC: " + dataSource.getDs());
+		ctx.close();
 
 	}
 

@@ -5,12 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
+<!-- Scan package anotation @Component @Service...  -->
     <context:component-scan base-package="hogar.dao"/>
+<!--     Load properties -->
+    <context:property-placeholder location="classpath:dataSource.properties"/>
     
-    <bean id="tipo" class="hogar.dao.TipoDao">
-    	<property name="idTipo" value="1"></property>
-    	<property name="detalle" value="Comida"></property>
-	</bean>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="url" value = "${jdbc.url}" />
+        <property name="username" value = "${jdbc.username}" />
+        <property name="password" value = "${jdbc.password}" />
+    </bean>
     
 </beans>
 
