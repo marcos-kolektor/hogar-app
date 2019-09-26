@@ -10,7 +10,7 @@ public class Main {
 		// /* Initiate Spring application context. */
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext("applicationContext.xml");
 		DataSource dataSource = (DataSource) ctx.getBean("beanDataSource");
-		System.out.print("URL_JDBC: " + dataSource.getDs());
+		//System.out.print("URL_JDBC: " + dataSource.getDs());
 		ctx.close();
 
 	}

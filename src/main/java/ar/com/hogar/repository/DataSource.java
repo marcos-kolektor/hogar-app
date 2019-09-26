@@ -1,16 +1,12 @@
 package ar.com.hogar.repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 public class DataSource {
 	
-	private javax.sql.DataSource ds;
-
-	public javax.sql.DataSource getDs() {
-		return ds;
-	}
-
-	public void setDs(javax.sql.DataSource ds) {
-		this.ds = ds;
-	}
+	@PersistenceContext
+	private EntityManager entityManager;
 	
 	
 }
